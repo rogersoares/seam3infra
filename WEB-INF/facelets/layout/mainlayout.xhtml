@@ -10,11 +10,18 @@
 	<ui:insert name="head"/>
 </head>
 
-<body bgcolor="gray">
+<body>
 
-<div style="width:90%;background:white">
-	<ui:insert name="body"/>
-</div>
+<ui:insert name="header"><ui:include src="/WEB-INF/facelets/layout/header.xhtml"/></ui:insert>
+<table border="1" width="100%"><tr>
+<td width="100">
+<ui:insert name="menu"><ui:include src="/WEB-INF/facelets/layout/menu.xhtml"/></ui:insert>
+</td>
+<td>
+<ui:insert name="body"/>
+</td>
+</tr></table>
+<ui:insert name="footer"><ui:include src="/WEB-INF/facelets/layout/footer.xhtml"/></ui:insert>
 
 </body>
 </html>
