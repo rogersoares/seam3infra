@@ -3,12 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="/WEB-INF/facelets/layout/mainlayout.xhtml">
 
 <ui:define name="body">
-test
+<h:messages/>
+<rich:tabPanel switchType="client">
+	<rich:tab header="tab1">
+	test
+	</rich:tab>
+	<rich:tab header="tab2">
+	test2
+	</rich:tab>
+</rich:tabPanel>
 </ui:define>
 
 </ui:composition>
