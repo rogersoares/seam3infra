@@ -13,6 +13,13 @@
 		<param-value>.xhtml</param-value>
 	</context-param>
 
+	<context-param>
+		<param-name>facelets.LIBRARIES</param-name>
+		<param-value>
+			/WEB-INF/facelets/tags/demo.taglib.xml
+		</param-value>
+	</context-param>
+
 	<listener>
 		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
 	</listener>
