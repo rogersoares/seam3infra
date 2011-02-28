@@ -18,5 +18,13 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/jsr250-api.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/jta.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/openid4java.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/picketlink-idm-api.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/picketlink-idm-common.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/picketlink-idm-core.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/picketlink-idm-spi.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/seam-security-external.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/seam-security.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/seam-servlet.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
