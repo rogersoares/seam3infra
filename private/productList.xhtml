@@ -17,7 +17,9 @@
 		#{productAction.product.name} edited.<br/><br/>
 	</c:if>
 
-	<h:link outcome="/private/productForm" value="#{messages['global.add']}"/>
+	<h:link outcome="/private/productForm" value="#{messages['global.add']}">
+		<f:param name="cid" value="#{conversation.id}"/>
+	</h:link>
 	<table border="1">
 		<tr>
 			<td><b>#{messages["product.id"]}</b></td>

@@ -1,8 +1,11 @@
 package test.seam.action;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -13,8 +16,10 @@ import test.biz.Product;
 import test.biz.ProductType;
 
 @Named
-@RequestScoped
-public class ProductAction {
+@ConversationScoped
+public class ProductAction implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private Logger log;
@@ -25,19 +30,30 @@ public class ProductAction {
 //	@Inject
 //	FacesMessages facesMessages;
 
+	@Inject Conversation conversation;
+
 	private Integer id;
 	private Product product;
 
-//	@Create
-/*	public void create() {
+	@PostConstruct
+	public void create() {
+		System.out.println("---> created called");
+		if (conversation.isTransient()) {
+			conversation.begin();
+		}
+
+		// No form parameters set here yet
+		product = new Product();
+		product.setType(new ProductType());
+	}
+
+	public void preRenderView() {
+		System.out.println("--> preRenderView called - cid:" + conversation.getId());
 		if (id != null) {
 			product = em.find(Product.class, id);
-		} else {
-			product = new Product();
-			product.setType(new ProductType());
 		}
 	}
-*/
+
 	public String save() {
 		try {
 			boolean isValidationOk = true;
@@ -71,10 +87,6 @@ public class ProductAction {
 		return em.createQuery("from Product order by id").getResultList();
 	}
 
-	public String test() {
-		List<Product> l = em.createQuery("from Product order by id").getResultList();
-		return "testCalled - " + l.size();
-	}
 	public Integer getId() {
 		return id;
 	}
@@ -84,6 +96,7 @@ public class ProductAction {
 	}
 
 	public Product getProduct() {
+		System.out.println("--> getProduct called - cid:" + conversation.getId());
 		return product;
 	}
 
