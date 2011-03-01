@@ -1,19 +1,18 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:c="http://java.sun.com/jstl/core"
 		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:s="http://jboss.com/products/seam/taglib">
+		xmlns:ui="http://java.sun.com/jsf/facelets">
 <div style="width:100px; border:1px solid blue">
 menu<br/>
-<s:fragment rendered="#{identity.loggedIn}">
+<ui:fragment rendered="#{identity.loggedIn}">
 	<h:form id="logoutForm">
 		<h:commandLink id="logout" action="#{identity.logout}">Logout</h:commandLink>
 	</h:form><br/>
-	<s:link view="/private/productList.xhtml" value="Products" /><br/>
-</s:fragment>
-<s:fragment rendered="#{not identity.loggedIn}">
-	<s:link view="/login.xhtml" value="Login" /><br/>
-</s:fragment>
+	<h:link outcome="/private/productList" value="Products" /><br/>
+</ui:fragment>
+<ui:fragment rendered="#{not identity.loggedIn}">
+	<h:link outcome="/login" value="Login" /><br/>
+</ui:fragment>
 <h:outputText value="#{productAction.test()}"/>
 </div>
 </ui:composition>
