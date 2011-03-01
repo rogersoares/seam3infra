@@ -2,6 +2,7 @@ package test.seam.action;
 
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -12,6 +13,7 @@ import test.biz.Product;
 import test.biz.ProductType;
 
 @Named
+@RequestScoped
 public class ProductAction {
 
 	@Inject
@@ -20,12 +22,11 @@ public class ProductAction {
 	@Inject
 	EntityManager em;
 
-/*	@Inject
-	FacesMessages facesMessages;
+//	@Inject
+//	FacesMessages facesMessages;
 
-	@RequestParameter
 	private Integer id;
-*/	private Product product;
+	private Product product;
 
 //	@Create
 /*	public void create() {
@@ -74,13 +75,13 @@ public class ProductAction {
 		List<Product> l = em.createQuery("from Product order by id").getResultList();
 		return "testCalled - " + l.size();
 	}
-//	public Integer getId() {
-//		return id;
-//	}
+	public Integer getId() {
+		return id;
+	}
 
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Product getProduct() {
 		return product;

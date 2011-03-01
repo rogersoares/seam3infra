@@ -11,14 +11,17 @@
 
 <ui:define name="body">
 <rich:tabPanel switchType="client">
+
 	<rich:tab header="tab1">
-	test
+	<h:link value="product list" outcome="/private/productList"/>
 	</rich:tab>
+
 	<rich:tab header="tab2">
 	<h:link value="view user 1 details" outcome="/private/dbexample">
 		<f:param name="user.id" value="1"/>
 	</h:link>
 	</rich:tab>
+
 </rich:tabPanel>
 <d:demo>taglib</d:demo>
 </ui:define>
