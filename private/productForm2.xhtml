@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:c="http://java.sun.com/jstl/core"
+		xmlns:rich="http://richfaces.org/rich"
+		xmlns:a="http://richfaces.org/a4j"
+		template="/WEB-INF/facelets/layout/mainlayout.xhtml">
+
+<f:metadata>
+	<f:viewParam name="id" label="id" value="#{product2Action.id}"/>
+</f:metadata>
+
+<ui:define name="title">#{messages["title.productForm"]}</ui:define>
+
+<ui:define name="body">
+
+	<h:form id="productForm">
+
+	<h:messages style="background-color:#ffaaaa" globalOnly="true"/>
+	<h:inputHidden value="#{product2Action.id}" />
+
+	<table style="border:1px solid black">
+	<tr>
+		<td>
+			<h:outputLabel for="name">Name:</h:outputLabel>
+		</td>
+		<td>
+			<h:inputText id="name" value="#{product2Action.product.name}"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputLabel>Description:</h:outputLabel>
+		</td>
+		<td>
+			<h:inputTextarea id="description" value="#{product2Action.product.description}" cols="50" rows="5" required="true"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h:outputLabel>Type:</h:outputLabel>
+		</td>
+		<td>
+			<h:selectOneMenu id="type" value="#{product2Action.productType}">
+				<f:selectItems value="#{productType.getTypes()}"/>
+			</h:selectOneMenu>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<h:commandButton id="submit" value="#{messages['global.save']}" action="#{product2Action.save}"/>
+			&#160;
+			<h:button id="cancel" value="#{messages['global.cancel']}" outcome="/private/productList"/>
+		</td>
+	</tr>
+	</table>
+	</h:form>
+
+</ui:define>
+
+</ui:composition>

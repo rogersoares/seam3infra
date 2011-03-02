@@ -20,6 +20,7 @@
 	<h:link outcome="/private/productForm" value="#{messages['global.add']}">
 		<f:param name="cid" value="#{conversation.id}"/>
 	</h:link>
+	<h:link outcome="/private/productForm2" value="#{messages['global.add']}2"/>
 	<table border="1">
 		<tr>
 			<td><b>#{messages["product.id"]}</b></td>
@@ -42,6 +43,11 @@
 					<f:param name="id" value="#{product.id}"/>
 				</h:commandLink>
 				</h:form>
+			</td>
+			<td align="center">
+				<h:link outcome="/private/productForm2" value="#{messages['global.edit']}2">
+					<f:param name="id" value="#{product.id}"/>
+				</h:link>
 			</td>
 		</tr>
 		</ui:repeat>
