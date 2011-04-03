@@ -20,6 +20,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/jta.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/seam-international.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/seam-remoting.jar"/>
-	<classpathentry kind="lib" path="WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/validation-api.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
